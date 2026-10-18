@@ -9,8 +9,8 @@ utilisateur ou d’accès aux services.
 - English help: https://hafidnes.github.io/4p-budget-site/en/
 - Contact : abdelhafid.younes@gmail.com
 
-La politique de confidentialité de l’application n’est pas publiée dans ce
-dépôt tant que les informations et vérifications nécessaires restent ouvertes.
+Politique française : https://hafidnes.github.io/4p-budget-site/confidentialite/
+Privacy policy: https://hafidnes.github.io/4p-budget-site/privacy/
 Ces pages ne proposent pas de vente ni de traitement de paiement.
 
 Éditeur : Abdelhafid YOUNES.
