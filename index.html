@@ -179,6 +179,99 @@ footer nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
   .btn{width:100%}
   .barre .btn{width:auto}.marque{flex-shrink:0}
 }
+
+/* ——— Profondeur : lumière, relief et plans successifs ——— */
+:root{
+  --relief:0 1px 2px rgba(22,33,31,.06),0 6px 14px -4px rgba(22,33,31,.08),0 22px 44px -18px rgba(22,33,31,.16);
+  --relief-haut:0 2px 4px rgba(22,33,31,.07),0 14px 28px -8px rgba(22,33,31,.14),0 40px 70px -24px rgba(22,33,31,.24);
+  --appareil:0 2px 3px rgba(8,14,13,.35),0 18px 30px -10px rgba(8,14,13,.32),0 60px 90px -30px rgba(8,14,13,.42);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.75);--halo:.30;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --relief:0 1px 2px rgba(0,0,0,.35),0 8px 18px -6px rgba(0,0,0,.4),0 26px 50px -20px rgba(0,0,0,.55);
+  --relief-haut:0 2px 4px rgba(0,0,0,.4),0 16px 32px -8px rgba(0,0,0,.5),0 44px 80px -24px rgba(0,0,0,.7);
+  --appareil:0 2px 3px rgba(0,0,0,.6),0 18px 30px -10px rgba(0,0,0,.6),0 60px 90px -30px rgba(0,0,0,.8);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.06);--halo:.22;
+}}
+:root[data-theme="dark"]{
+  --relief:0 1px 2px rgba(0,0,0,.35),0 8px 18px -6px rgba(0,0,0,.4),0 26px 50px -20px rgba(0,0,0,.55);
+  --relief-haut:0 2px 4px rgba(0,0,0,.4),0 16px 32px -8px rgba(0,0,0,.5),0 44px 80px -24px rgba(0,0,0,.7);
+  --appareil:0 2px 3px rgba(0,0,0,.6),0 18px 30px -10px rgba(0,0,0,.6),0 60px 90px -30px rgba(0,0,0,.8);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.06);--halo:.22;
+}
+
+/* Les appareils inclinés ne doivent jamais élargir la page. */
+main{overflow-x:clip}
+/* Fond du haut de page : quatre lueurs aux couleurs des enveloppes, derrière tout le reste. */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20% -10% -10%;z-index:-1;pointer-events:none;opacity:var(--halo);filter:blur(60px);
+  background:
+    radial-gradient(34rem 26rem at 78% 30%,var(--prevoir),transparent 70%),
+    radial-gradient(26rem 22rem at 96% 72%,var(--profiter),transparent 70%),
+    radial-gradient(24rem 20rem at 58% 88%,var(--plaisir),transparent 70%),
+    radial-gradient(26rem 20rem at 8% 6%,var(--proteger),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:7rem;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--fond))}
+
+/* Téléphone : châssis à reflet, encoche étroite, vitre, ombre portée en trois couches. */
+.tel{position:relative;background:linear-gradient(145deg,#4b5654 0%,#0c1211 22%,#0a0f0e 78%,#39433f 100%);border:0;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),inset 0 0 0 3px #050908,var(--appareil)}
+.tel::before{content:"";position:absolute;z-index:2;left:50%;top:calc(.55rem + 1.55%);width:20%;aspect-ratio:3.2/1;transform:translateX(-50%);border-radius:999px;
+  background:radial-gradient(circle at 76% 50%,#1b2a3a 0 9%,#0b1016 10% 15%,transparent 16%),#000;box-shadow:0 0 0 1px rgba(255,255,255,.05)}
+.tel::after{content:"";position:absolute;inset:.55rem;z-index:1;border-radius:2.4rem;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 22%,transparent 38%)}
+.visuel .tel::before{top:calc(.55rem + 1.55%)}
+.montre{background:linear-gradient(145deg,#4b5654 0%,#0c1211 24%,#0a0f0e 76%,#39433f 100%);border:0;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),var(--appareil)}
+
+/* Scène d'ouverture : téléphone incliné, montre au premier plan, socle lumineux et ombre au sol. */
+.scene{perspective:1500px;--tx:0;--ty:0;--d:0px}
+.scene::before{content:"";position:absolute;left:50%;top:46%;width:30rem;max-width:120%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--carte) 85%,transparent),transparent 72%)}
+.scene::after{content:"";position:absolute;left:50%;bottom:-1.6rem;width:19rem;max-width:80%;height:2.6rem;transform:translateX(-46%);border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(8,14,13,.38),transparent);filter:blur(10px)}
+.scene .tel{transform:translateY(calc(var(--d) * -.35)) rotateY(calc(-13deg + var(--tx) * 6deg)) rotateX(calc(5deg + var(--ty) * -5deg)) rotateZ(1.2deg);transform-origin:50% 60%;transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.scene .montre{z-index:3;transform:translateY(calc(var(--d) * -.9)) translateZ(90px) rotateY(calc(9deg + var(--tx) * 9deg)) rotateX(calc(var(--ty) * -6deg)) rotateZ(-3deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+
+/* Captures des étapes : inclinaison alternée et lueur de la couleur de l'enveloppe concernée. */
+.visuel{perspective:1300px;position:relative;isolation:isolate}
+.visuel::before{content:"";position:absolute;left:50%;top:50%;width:26rem;max-width:115%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;pointer-events:none;filter:blur(40px);opacity:var(--halo);
+  background:radial-gradient(closest-side,var(--lueur,var(--prevoir)),transparent 75%)}
+.etape:nth-child(2) .visuel{--lueur:var(--plaisir)}.etape:nth-child(3) .visuel{--lueur:var(--proteger)}
+.visuel .tel{transform:rotateY(-11deg) rotateX(3deg);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.etape:nth-child(even) .visuel .tel{transform:rotateY(11deg) rotateX(3deg)}
+.etape:hover .visuel .tel{transform:rotateY(-4deg) rotateX(1deg) translateY(-6px)}
+.etape:nth-child(even):hover .visuel .tel{transform:rotateY(4deg) rotateX(1deg) translateY(-6px)}
+
+/* Cartes : reflet en haut, ombre en couches, léger soulèvement au survol. */
+.env,.regle,.app,.pilier,.offre,.edition{box-shadow:var(--reflet),var(--relief);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.simu{box-shadow:var(--reflet),var(--relief-haut)}
+.offre.mise{box-shadow:var(--reflet),var(--relief-haut);transform:translateY(-.5rem)}
+@media (hover:hover){
+  .env:hover,.regle:hover,.app:hover,.pilier:hover,.edition:hover,.offre:hover{transform:translateY(-5px);box-shadow:var(--reflet),var(--relief-haut)}
+  .offre.mise:hover{transform:translateY(-.8rem)}
+}
+.env{background-image:linear-gradient(160deg,color-mix(in srgb,var(--carte) 55%,transparent),transparent 55%)}
+.app .cadre{box-shadow:var(--relief)}
+.btn.plein{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 18px -8px color-mix(in srgb,var(--accent) 70%,transparent)}
+.btn{transition:transform .2s ease,box-shadow .2s ease}.btn:hover{transform:translateY(-1px)}
+.fin img{box-shadow:var(--relief-haut)}
+.etape .rang{box-shadow:0 6px 14px -6px color-mix(in srgb,var(--accent) 80%,transparent)}
+
+/* Sections teintées : en creux, comme un plan situé derrière la page. */
+section.teinte{background:linear-gradient(to bottom,color-mix(in srgb,var(--teinte) 100%,transparent),var(--teinte) 60%,color-mix(in srgb,var(--teinte) 70%,var(--fond)));box-shadow:inset 0 14px 22px -18px rgba(8,14,13,.22),inset 0 -14px 22px -18px rgba(8,14,13,.14)}
+header.barre{box-shadow:0 10px 24px -20px rgba(8,14,13,.5)}
+
+@media (max-width:60rem){
+  .scene{margin-top:1rem;padding-bottom:1.5rem}
+  .scene .tel{transform:rotateY(-8deg) rotateX(3deg) rotateZ(.8deg)}
+  .scene .montre{transform:translateZ(60px) rotateY(7deg) rotateZ(-3deg)}
+  .visuel .tel,.etape:nth-child(even) .visuel .tel{transform:rotateY(-7deg) rotateX(2deg)}
+  .offre.mise{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .scene .tel,.scene .montre,.visuel .tel,.env,.regle,.app,.pilier,.offre,.edition,.btn{transition:none}
+  .env:hover,.regle:hover,.app:hover,.pilier:hover,.edition:hover,.offre:hover,.btn:hover{transform:none}
+}
 </style>
 </head>
 <body>
@@ -500,6 +593,26 @@ footer nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
     var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vu");obs.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
     els.forEach(function(e){obs.observe(e)});
   }else{els.forEach(function(e){e.classList.add("vu")})}
+
+  // Profondeur : la scène d'ouverture suit doucement le pointeur et le défilement (jamais si « Réduire les animations »).
+  var scene=document.querySelector(".scene");
+  if(scene&&!matchMedia("(prefers-reduced-motion: reduce)").matches){
+    if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+      var hero=document.querySelector(".hero");
+      hero.addEventListener("pointermove",function(e){
+        var r=scene.getBoundingClientRect();
+        var x=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+        var y=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
+        scene.style.setProperty("--tx",x.toFixed(3));scene.style.setProperty("--ty",y.toFixed(3));
+      });
+      hero.addEventListener("pointerleave",function(){scene.style.setProperty("--tx",0);scene.style.setProperty("--ty",0)});
+    }
+    var attente=false;
+    addEventListener("scroll",function(){
+      if(attente)return;attente=true;
+      requestAnimationFrame(function(){attente=false;scene.style.setProperty("--d",Math.min(60,scrollY*.08).toFixed(1)+"px")});
+    },{passive:true});
+  }
 })();
 </script>
 </body>
