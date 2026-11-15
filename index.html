@@ -1,64 +1,506 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Aide de 4P Budget : comprendre les enveloppes 60/20/10/10, les comptes bancaires et les prévisions.">
-  <title>4P Budget — Aide et méthode</title>
-  <link rel="stylesheet" href="site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4PMoney — Le budget du foyer en quatre enveloppes</title>
+<meta name="description" content="4PMoney applique la méthode 4P : Prévoir, Plaisir, Profiter, Protéger. Un budget clair pour le foyer, sur iPhone, iPad, Mac et Apple Watch, sans connexion à votre banque.">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101816" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/touch-icon.png">
+<link rel="apple-touch-icon" href="assets/touch-icon.png">
+<meta property="og:title" content="4PMoney — Le budget du foyer en quatre enveloppes">
+<meta property="og:description" content="Prévoir, Plaisir, Profiter, Protéger : une méthode simple, une application sobre, vos données chez vous.">
+<meta property="og:image" content="assets/icon.png">
+<style>
+:root{
+  --fond:#faf7f2;--carte:#fffdf9;--teinte:#f1ede4;--encre:#16211f;--doux:#56635f;--trait:#e0dacd;
+  --accent:#0d514a;--accent-encre:#ffffff;--accent-doux:#dfe6e1;
+  --prevoir:#2f6fd6;--plaisir:#b9770a;--profiter:#7a4fd0;--proteger:#0b8a62;
+  --prevoir-f:#e8edf6;--plaisir-f:#fbf0e2;--profiter-f:#f0e6f4;--proteger-f:#e2f1e9;
+  --alerte:#a3540c;--ombre:0 18px 50px rgba(22,33,31,.12);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fond:#101816;--carte:#19221f;--teinte:#151e1b;--encre:#eef3f0;--doux:#a7b5af;--trait:#2b3733;
+  --accent:#7fd2bb;--accent-encre:#0c1b18;--accent-doux:#20302b;
+  --prevoir:#8fb6ff;--plaisir:#f1b65a;--profiter:#c2a4ff;--proteger:#6fd6b0;
+  --prevoir-f:#1d2a3f;--plaisir-f:#352c1c;--profiter-f:#2c2540;--proteger-f:#17332a;
+  --alerte:#f0a35a;--ombre:0 18px 50px rgba(0,0,0,.45);
+}}
+:root[data-theme="dark"]{
+  --fond:#101816;--carte:#19221f;--teinte:#151e1b;--encre:#eef3f0;--doux:#a7b5af;--trait:#2b3733;
+  --accent:#7fd2bb;--accent-encre:#0c1b18;--accent-doux:#20302b;
+  --prevoir:#8fb6ff;--plaisir:#f1b65a;--profiter:#c2a4ff;--proteger:#6fd6b0;
+  --prevoir-f:#1d2a3f;--plaisir-f:#352c1c;--profiter-f:#2c2540;--proteger-f:#17332a;
+  --alerte:#f0a35a;--ombre:0 18px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--encre);font:1.0625rem/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;overflow-wrap:break-word}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--plaisir);outline-offset:3px;border-radius:6px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:"New York","Iowan Old Style",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,6vw,3.7rem)}
+h2{font-size:clamp(1.7rem,4vw,2.5rem)}
+h3{font-size:1.25rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0}
+.sur{font-size:.8125rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.chapo{font-size:1.2rem;color:var(--doux);max-width:38rem}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--carte);padding:.5rem 1rem;z-index:20}
+
+header.barre{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--fond) 88%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--trait)}
+.barre .wrap{display:flex;align-items:center;gap:1rem;min-height:3.75rem}
+.marque{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.1rem;color:var(--encre);text-decoration:none}
+.marque img{width:2rem;height:2rem;border-radius:.5rem}
+.barre nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.95rem}
+.barre nav a{color:var(--doux);text-decoration:none}.barre nav a:hover{color:var(--encre)}
+.theme{border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;width:2.5rem;height:2.5rem;cursor:pointer;font-size:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-weight:650;text-decoration:none;border:1px solid transparent}
+.btn.plein{background:var(--accent);color:var(--accent-encre)}
+.btn.contour{border-color:var(--trait);color:var(--encre);background:var(--carte)}
+.btn.petit{min-height:2.5rem;padding:.4rem 1rem;font-size:.95rem}
+
+.hero{padding:4rem 0 3rem}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+.hero h1{margin:.9rem 0 1.2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.garanties{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;color:var(--doux);font-size:.95rem}
+.garanties li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:.45rem}
+.scene{position:relative;display:flex;justify-content:center;min-height:34rem}
+.tel{width:min(19rem,74vw);border-radius:2.9rem;padding:.55rem;background:#0c1211;box-shadow:var(--ombre);border:1px solid #2a3532}
+.tel img{border-radius:2.4rem;width:100%;aspect-ratio:1170/2532;object-fit:cover}
+.montre{position:absolute;right:0;bottom:1.5rem;width:9.5rem;border-radius:2.2rem;padding:.5rem;background:#0c1211;border:1px solid #2a3532;box-shadow:var(--ombre)}
+.montre img{border-radius:1.8rem}
+
+section{padding:4.5rem 0}
+section.teinte{background:var(--teinte);border-block:1px solid var(--trait)}
+.tete{max-width:44rem;margin-bottom:2.5rem}.tete h2{margin:.7rem 0 1rem}
+
+.quatre{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.env{border-radius:1.4rem;padding:1.4rem;border:1px solid var(--trait);position:relative;overflow:hidden}
+.env::before{content:"";position:absolute;inset:0 0 auto 0;height:1.4rem;clip-path:polygon(0 0,100% 0,50% 100%);opacity:.5;background:currentColor}
+.env.prevoir{background:var(--prevoir-f);color:var(--prevoir)}.env.plaisir{background:var(--plaisir-f);color:var(--plaisir)}
+.env.profiter{background:var(--profiter-f);color:var(--profiter)}.env.proteger{background:var(--proteger-f);color:var(--proteger)}
+.env h3{margin-top:1.2rem;color:var(--encre)}
+.env .part{font-size:2.3rem;font-weight:700;font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;line-height:1.1;margin:.4rem 0}
+.env p{color:var(--encre);opacity:.82;font-size:.95rem}
+
+.simu{margin-top:2rem;background:var(--carte);border:1px solid var(--trait);border-radius:1.6rem;padding:1.6rem;box-shadow:var(--ombre);display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem}
+.simu label{display:flex;justify-content:space-between;gap:1rem;font-weight:600;margin-bottom:.4rem}
+.simu label output{font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;color:var(--accent)}
+.simu input[type=range]{width:100%;accent-color:var(--accent);height:2rem}
+.champ{margin-bottom:1.3rem}
+.simu .note{font-size:.9rem;color:var(--doux)}
+.lignes{display:grid;gap:.7rem}
+.ligne{display:grid;grid-template-columns:6.2rem 1fr 6.6rem;align-items:center;gap:.8rem;font-size:.98rem}
+.ligne b{font-weight:650}
+.jauge{height:.7rem;border-radius:999px;background:var(--accent-doux);overflow:hidden}
+.jauge i{display:block;height:100%;border-radius:999px;width:0;transition:width .35s ease}
+.ligne .somme{text-align:right;font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;font-weight:650}
+.verdict{margin-top:1.1rem;padding:.9rem 1rem;border-radius:.9rem;background:var(--accent-doux);font-size:.95rem}
+.verdict.alerte{color:var(--alerte);background:color-mix(in srgb,var(--alerte) 12%,var(--carte))}
+
+.regles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.regle{background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.3rem}
+.regle h3{margin-bottom:.5rem;font-size:1.08rem}.regle p{color:var(--doux);font-size:.97rem}
+
+.etapes{display:grid;gap:3.5rem}
+.etape{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.etape:nth-child(even) .visuel{order:-1}
+.etape .rang{display:inline-grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:999px;background:var(--accent);color:var(--accent-encre);font-weight:700;margin-bottom:1rem}
+.etape h3{font-size:1.5rem;margin-bottom:.7rem}.etape p{color:var(--doux)}
+.etape ul{margin:1rem 0 0;padding-left:1.1rem;color:var(--doux)}.etape li{margin:.3rem 0}
+.visuel{display:flex;justify-content:center}
+.visuel .tel{width:min(16.5rem,70vw)}
+
+.appareils{display:grid;grid-template-columns:1.5fr 1fr;gap:1.2rem}
+.app{background:var(--carte);border:1px solid var(--trait);border-radius:1.5rem;padding:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.app h3{margin-bottom:.3rem}.app p{color:var(--doux);font-size:.97rem}
+.app .cadre{border-radius:1rem;overflow:hidden;border:1px solid var(--trait);margin-top:auto}
+.app.ipad .cadre{max-height:23rem}.app.ipad .cadre img{width:100%;object-fit:cover;object-position:top}
+.app.large{grid-column:1/-1}
+
+.piliers{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.pilier{background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.4rem}
+.pilier h3{margin-bottom:.5rem}.pilier p{color:var(--doux)}
+.avis{margin-top:1.5rem;font-size:.95rem;color:var(--doux);border-left:3px solid var(--accent);padding-left:1rem;max-width:48rem}
+
+.offres{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;max-width:56rem}
+.offre{background:var(--carte);border:1px solid var(--trait);border-radius:1.5rem;padding:1.6rem}
+.offre.mise{border:2px solid var(--accent)}
+.offre h3{font-size:1.35rem}.offre .sous{color:var(--doux);margin:.3rem 0 1rem}
+.offre ul{list-style:none;padding:0;margin:0;display:grid;gap:.55rem}
+.offre li{padding-left:1.6rem;position:relative}
+.offre li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.offre li.non{color:var(--doux)}.offre li.non::before{content:"–";color:var(--doux)}
+
+.tele{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.edition{background:var(--carte);border:1px solid var(--trait);border-radius:1.4rem;padding:1.5rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.edition p{color:var(--doux);font-size:.97rem;flex:1}
+.pas{counter-reset:pas;list-style:none;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pas li{counter-increment:pas;padding-left:2.8rem;position:relative;color:var(--doux)}
+.pas li::before{content:counter(pas);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:999px;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-weight:700}
+.pas b{color:var(--encre);display:block}
+
+.faq{max-width:48rem}
+details{border-bottom:1px solid var(--trait);padding:1.1rem 0}
+summary{cursor:pointer;font-weight:650;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:.7rem;color:var(--doux)}
+
+.fin{text-align:center}.fin img{width:5.5rem;height:5.5rem;border-radius:1.3rem;margin:0 auto 1.4rem;box-shadow:var(--ombre)}
+.fin .chapo{margin:1rem auto 0}.fin .actions{justify-content:center}
+footer{border-top:1px solid var(--trait);padding:2rem 0 3rem;font-size:.9rem;color:var(--doux)}
+footer .wrap{display:grid;gap:.8rem}
+footer nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+
+.reveler{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveler.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveler{opacity:1;transform:none;transition:none}.jauge i{transition:none}}
+@media (max-width:60rem){
+  .hero .wrap,.simu,.etape,.appareils{grid-template-columns:1fr}
+  .etape:nth-child(even) .visuel{order:0}
+  .quatre,.piliers{grid-template-columns:repeat(2,1fr)}
+  .regles,.tele,.pas{grid-template-columns:1fr}
+  .barre nav{display:none}.theme{margin-left:auto}
+  .scene{min-height:0}
+}
+@media (max-width:36rem){
+  section{padding:3.2rem 0}.hero{padding:2.5rem 0 2rem}
+  .wrap{padding:0 1rem}
+  .quatre,.piliers,.offres{grid-template-columns:1fr}
+  .montre{width:7.5rem;right:-.2rem}
+  .ligne{grid-template-columns:5.2rem 1fr 5.6rem;gap:.5rem;font-size:.92rem}
+  .btn{width:100%}
+  .barre .btn{width:auto}.marque{flex-shrink:0}
+}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Aller au contenu</a>
-  <header class="site-header">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">4P</span><span>4P Budget</span></a>
-    <nav aria-label="Langue"><a href="./" lang="fr" aria-current="page">Français</a><a href="en/" lang="en" hreflang="en">English</a></nav>
-  </header>
-  <main id="content">
-    <section class="intro" aria-labelledby="title">
-      <p class="eyebrow">Documentation du projet · développement en cours</p>
-      <h1 id="title">Vos comptes réels.<br>Un budget en quatre enveloppes.</h1>
-      <p class="lead">4P vous aide à suivre vos entrées et sorties d’argent, puis à comparer votre budget au repère 60/20/10/10.</p>
-      <div class="intro-links"><a class="button" href="#method">Comprendre la méthode</a><a href="#contact">Obtenir de l’aide</a></div>
-    </section>
+<a class="skip" href="#contenu">Aller au contenu</a>
 
-    <section id="method" aria-labelledby="method-title">
-      <div class="section-heading"><h2 id="method-title">60/20/10/10 : un point de départ</h2><span class="pill">Calculé sur les revenus</span></div>
-      <p>La répartition s’applique au revenu de la période choisie. Vos comptes bancaires peuvent servir à plusieurs enveloppes ; une enveloppe n’est pas un compte bancaire.</p>
-      <div class="buckets">
-        <article class="bucket plan"><span class="bucket-code">01 · Prévoir</span><h3>60 %</h3><p>Les charges fixes et essentielles : logement, énergie, assurances, transports…</p></article>
-        <article class="bucket provide"><span class="bucket-code">02 · Plaisir</span><h3>20 %</h3><p>L’alimentation du quotidien et les dépenses associées à cette enveloppe.</p></article>
-        <article class="bucket play"><span class="bucket-code">03 · Profiter</span><h3>10 %</h3><p>Les loisirs, l’habillement et les dépenses choisies pour se faire plaisir.</p></article>
-        <article class="bucket protect"><span class="bucket-code">04 · Protéger</span><h3>10 %</h3><p>L’épargne de sécurité, puis les projets que vous souhaitez préparer.</p></article>
-      </div>
-      <div class="example">
-        <div><h3>Exemple avec 2 000 € de revenus</h3><p>Le repère initial donne 1 200 € pour Prévoir, 400 € pour Plaisir, 200 € pour Profiter et 200 € pour Protéger.</p></div>
-        <div class="distribution" role="img" aria-label="Répartition de 2 000 euros : Prévoir 1 200 euros, 60 pour cent ; Plaisir 400 euros, 20 pour cent ; Profiter 200 euros, 10 pour cent ; Protéger 200 euros, 10 pour cent."><span class="plan-part"></span><span class="provide-part"></span><span class="play-part"></span><span class="protect-part"></span></div>
-      </div>
-      <aside class="note"><h3>Et si les charges dépassent 60 % ?</h3><p>Prévoir est prioritaire. 4P signale l’écart et permet de préparer un ajustement. Vous choisissez la répartition du reste et confirmez le budget : les autres pourcentages ne sont pas imposés automatiquement. Si les engagements dépassent les revenus, changer les pourcentages ne supprime pas le déficit.</p></aside>
-    </section>
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="#"><img src="assets/touch-icon.png" alt="" width="64" height="64">4PMoney</a>
+    <nav aria-label="Sections">
+      <a href="#methode">La méthode</a>
+      <a href="#fonctionnement">Fonctionnement</a>
+      <a href="#donnees">Vos données</a>
+      <a href="#offres">Offres</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">◐</button>
+    <a class="btn plein petit" href="#telecharger">Télécharger</a>
+  </div>
+</header>
 
-    <section aria-labelledby="views-title">
-      <h2 id="views-title">Trois vues, trois usages</h2>
-      <div class="views">
-        <article><span class="number">1</span><h3>Transactions</h3><p>Enregistrer les revenus, dépenses et transferts. Le compte bancaire indique où l’argent entre ou sort ; l’enveloppe décrit son usage budgétaire.</p></article>
-        <article><span class="number">2</span><h3>Prévision</h3><p>Préparer un mois, simuler les revenus et répartir les enveloppes. Enregistrer une prévision ne crée pas un revenu sur un compte bancaire.</p></article>
-        <article><span class="number">3</span><h3>Tableau de bord</h3><p>Lire la synthèse des opérations renseignées, des échéances connues et du budget. Une projection dépend des informations que vous avez saisies.</p></article>
-      </div>
-    </section>
+<main id="contenu">
 
-    <section class="help-grid" aria-labelledby="help-title">
-      <div><h2 id="help-title">Questions fréquentes</h2>
-        <details><summary>Faut-il un compte bancaire pour chaque P ?</summary><p>Non. Vous pouvez suivre plusieurs comptes réels sans les associer exclusivement à une enveloppe. Une dépense peut être payée depuis un compte courant et classée dans Profiter, par exemple.</p></details>
-        <details><summary>Peut-on préparer plusieurs salaires ou entrées d’argent ?</summary><p>Oui, les revenus peuvent être préparés ou enregistrés séparément. Distinguez le revenu prévu pour préparer le budget du revenu effectivement enregistré sur un compte.</p></details>
-        <details><summary>Répartir le budget effectue-t-il des virements ?</summary><p>Non. Les enveloppes sont une répartition virtuelle. 4P ne se connecte pas à votre banque et n’exécute pas de virement bancaire. Un transfert entre comptes est une opération que vous renseignez dans le suivi.</p></details>
-        <details><summary>Pourquoi mon solde bancaire diffère-t-il du disponible d’une enveloppe ?</summary><p>Le solde concerne l’argent enregistré sur un compte réel. Le disponible d’une enveloppe concerne le budget d’une période, après ses dépenses et réservations. Ces deux montants ne mesurent pas la même chose.</p></details>
-        <details><summary>Que faire si le budget ne s’ouvre plus ?</summary><p>Conservez les fichiers et sauvegardes d’origine. Si l’écran de récupération apparaît, consultez les options proposées avant de tenter une reprise. Indiquez au support le message affiché et la version de l’application.</p></details>
-        <details><summary>Que faire si un achat n’est pas confirmé ?</summary><p>Dans les versions proposant des abonnements, utilisez « Restaurer mes achats » dans l’écran Abonnement avant une nouvelle tentative. Les conditions, prix et essais disponibles sont ceux affichés dans l’application et par Apple. Aucun achat ne se fait sur ce site.</p></details>
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="sur">Budget du foyer · méthode 4P</p>
+      <h1>Chaque euro sait où il va. Vous aussi.</h1>
+      <p class="chapo">4PMoney répartit vos revenus dans quatre enveloppes — Prévoir, Plaisir, Profiter, Protéger — et vous dit, chaque jour, ce qu’il vous reste vraiment à vivre.</p>
+      <div class="actions">
+        <a class="btn plein" href="#telecharger">Télécharger 4PMoney</a>
+        <a class="btn contour" href="#methode">Comprendre la méthode</a>
       </div>
-      <aside class="contact" id="contact" aria-labelledby="contact-title"><span class="eyebrow">Assistance</span><h2 id="contact-title">Un point à éclaircir ?</h2><p>Précisez votre appareil, la version de 4P et les étapes qui mènent au problème. Masquez les informations personnelles dans vos captures.</p><a class="button" href="mailto:abdelhafid.younes@gmail.com?subject=Support%204P%20Budget">Ouvrir un e-mail</a><a class="email" href="mailto:abdelhafid.younes@gmail.com">abdelhafid.younes@gmail.com</a><p class="small">Éditeur : Abdelhafid YOUNES</p></aside>
-    </section>
-    <section class="hosting" aria-labelledby="hosting-title"><h2 id="hosting-title">À propos de ces pages</h2><p>Ces pages d’aide statiques ne contiennent ni formulaire, ni script d’analyse, ni police externe. Elles sont hébergées par GitHub Pages, qui enregistre les adresses IP des visiteurs à des fins de sécurité. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">En savoir plus sur l’hébergement</a>.</p><p>Consultez la <a href="confidentialite/">politique de confidentialité de 4P Budget</a> pour les données de l’application, les abonnements et vos droits.</p></section>
-  </main>
-  <footer><span>4P Budget · documentation du 18 octobre 2026</span><a href="en/" lang="en" hreflang="en">Read in English</a></footer>
+      <ul class="garanties">
+        <li>Aucun accès à votre banque</li>
+        <li>Vos données dans votre iCloud privé</li>
+        <li>iPhone, iPad, Mac, Apple Watch</li>
+      </ul>
+    </div>
+    <div class="scene">
+      <div class="tel"><img src="assets/iphone-accueil-clair.jpg" data-clair="assets/iphone-accueil-clair.jpg" data-sombre="assets/iphone-accueil-sombre.jpg" width="1170" height="2532" alt="Écran d’accueil de 4PMoney : reste à vivre du mois, soldes des comptes et quatre enveloppes."></div>
+      <div class="montre"><img src="assets/watch-accueil.png" width="416" height="496" alt="4PMoney sur Apple Watch : reste à vivre et montant par jour."></div>
+    </div>
+  </div>
+</div>
+
+<section id="methode" class="teinte">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">La méthode 4P</p>
+      <h2>Quatre missions pour un seul revenu</h2>
+      <p class="chapo">On part du revenu total du foyer, un ou plusieurs salaires confondus, et on le partage entre quatre enveloppes. La répartition de départ est 60 / 20 / 10 / 10. Vous pouvez l’ajuster, tant que le total fait 100 %.</p>
+    </div>
+    <div class="quatre reveler">
+      <article class="env prevoir"><h3>Prévoir</h3><p class="part num">60 %</p><p>Les charges fixes et essentielles : logement, énergie, assurances, abonnements, carburant, impôts, scolarité.</p></article>
+      <article class="env plaisir"><h3>Plaisir</h3><p class="part num">20 %</p><p>L’alimentation du quotidien, sans stress.</p></article>
+      <article class="env profiter"><h3>Profiter</h3><p class="part num">10 %</p><p>Loisirs et habillement : profiter sans culpabilité.</p></article>
+      <article class="env proteger"><h3>Protéger</h3><p class="part num">10 %</p><p>L’épargne de sécurité : fonds d’urgence d’abord, projets ensuite, long terme enfin.</p></article>
+    </div>
+
+    <div class="simu reveler" aria-labelledby="titre-simu">
+      <div>
+        <h3 id="titre-simu" style="margin-bottom:.4rem">Essayez avec vos chiffres</h3>
+        <p class="note" style="margin-bottom:1.3rem">Rien n’est envoyé : le calcul se fait dans cette page.</p>
+        <div class="champ">
+          <label for="revenu">Revenus du foyer <output id="o-revenu" class="num"></output></label>
+          <input id="revenu" type="range" min="1200" max="7000" step="50" value="2500">
+        </div>
+        <div class="champ">
+          <label for="charges">Charges essentielles <output id="o-charges" class="num"></output></label>
+          <input id="charges" type="range" min="600" max="7000" step="50" value="1500">
+        </div>
+        <p class="note">Montez les charges au-delà de 60 % du revenu pour voir comment la méthode réagit.</p>
+      </div>
+      <div>
+        <div class="lignes" id="lignes" aria-live="polite"></div>
+        <p class="verdict" id="verdict"></p>
+      </div>
+    </div>
+
+    <div class="regles reveler">
+      <div class="regle"><h3>Si Prévoir dépasse</h3><p>Les charges essentielles passent en premier, même au-delà de 60 %. Le reste se partage alors entre les trois autres enveloppes selon leur poids : la moitié pour Plaisir, un quart pour Profiter, un quart pour Protéger. L’application propose, vous validez.</p></div>
+      <div class="regle"><h3>Si Prévoir coûte moins</h3><p>Le surplus renforce Protéger. Il n’augmente pas automatiquement les loisirs : c’est vous qui décidez de le déplacer.</p></div>
+      <div class="regle"><h3>Si l’épargne a servi de tampon</h3><p>Reconstituer Protéger devient la priorité du mois suivant. La méthode ne vous juge pas, elle vous remet d’aplomb.</p></div>
+    </div>
+    <p class="avis reveler">Les enveloppes sont une répartition de votre budget, pas des comptes bancaires. Vous pouvez tout gérer avec un seul compte ou en avoir plusieurs : répartir un budget ne déplace jamais d’argent.</p>
+  </div>
+</section>
+
+<section id="fonctionnement">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Comment ça marche</p>
+      <h2>Trois gestes, et le mois est lisible</h2>
+    </div>
+    <div class="etapes">
+      <div class="etape reveler">
+        <div>
+          <span class="rang">1</span>
+          <h3>Préparez le mois</h3>
+          <p>Indiquez vos revenus et vos échéances. 4PMoney remplit les quatre enveloppes et réserve les dépenses déjà prévues, pour que le disponible affiché soit le vrai.</p>
+          <ul><li>Budget, dépensé et réservé pour chaque enveloppe</li><li>Échéances récurrentes et dépenses planifiées</li><li>Report du mois précédent, sur votre validation</li></ul>
+        </div>
+        <div class="visuel"><div class="tel"><img loading="lazy" src="assets/iphone-enveloppes-clair.jpg" width="1170" height="2532" alt="Écran Enveloppes : budget, dépensé, réservé et disponible pour Prévoir et Plaisir."></div></div>
+      </div>
+      <div class="etape reveler">
+        <div>
+          <span class="rang">2</span>
+          <h3>Notez vos dépenses</h3>
+          <p>Une dépense se saisit en quelques secondes, depuis l’iPhone, la montre ou le Mac. Vous pouvez aussi importer un relevé de votre banque, que vous aurez téléchargé vous-même.</p>
+          <ul><li>Import de relevés CSV, QIF et OFX, traité sur l’appareil</li><li>Opérations planifiées à pointer quand elles passent</li><li>Rapprochement avec le solde de votre banque</li></ul>
+        </div>
+        <div class="visuel"><div class="tel"><img loading="lazy" src="assets/iphone-transactions-clair.jpg" width="1170" height="2532" alt="Écran Transactions : opérations planifiées à pointer et dépenses du mois classées par enveloppe."></div></div>
+      </div>
+      <div class="etape reveler">
+        <div>
+          <span class="rang">3</span>
+          <h3>Lisez le bilan</h3>
+          <p>À tout moment, le bilan compare ce que vous aviez prévu à ce que vous avez dépensé. Si une enveloppe manque d’argent, l’application le dit clairement, sans compenser en silence.</p>
+          <ul><li>Prévu et dépensé, enveloppe par enveloppe</li><li>Reste à vivre et montant par jour</li><li>Export CSV et sauvegarde complète de votre budget</li></ul>
+        </div>
+        <div class="visuel"><div class="tel"><img loading="lazy" src="assets/iphone-bilan-clair.jpg" data-clair="assets/iphone-bilan-clair.jpg" data-sombre="assets/iphone-bilan-sombre.jpg" width="1170" height="2532" alt="Écran Bilan : budget disponible, revenus reçus, dépenses et comparaison prévu / dépensé."></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="appareils" class="teinte">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Sur tous vos appareils</p>
+      <h2>Le même budget, à la bonne taille</h2>
+      <p class="chapo">Votre budget se synchronise par votre iCloud privé. Chaque édition est pensée pour son écran.</p>
+    </div>
+    <div class="appareils">
+      <div class="app large reveler">
+        <div><h3>Mac</h3><p>Un tableau de bord dense, des tableaux triables et une saisie entièrement au clavier, pour ceux qui tiennent leurs comptes à la souris d’une main et au pavé numérique de l’autre.</p></div>
+        <div class="cadre"><img loading="lazy" src="assets/mac-tableau-sombre.jpg" width="1800" height="1125" alt="4PMoney sur Mac : tableau de bord avec comptes, opérations à venir, opérations en attente et enveloppes."></div>
+      </div>
+      <div class="app ipad reveler">
+        <div><h3>iPad</h3><p>La barre latérale garde vos comptes et vos enveloppes sous les yeux pendant que vous travaillez.</p></div>
+        <div class="cadre"><img loading="lazy" src="assets/ipad-accueil-clair.jpg" width="1350" height="1800" alt="4PMoney sur iPad : barre latérale des comptes et tableau de bord du mois."></div>
+      </div>
+      <div class="app reveler">
+        <div><h3>iPhone et Apple Watch</h3><p>Le reste à vivre d’un coup d’œil, une dépense notée au poignet, des widgets pour l’écran d’accueil et des complications pour le cadran.</p></div>
+        <ul style="margin:0;padding-left:1.1rem;color:var(--doux);font-size:.97rem">
+          <li>Widgets « Reste à vivre » et « Budget du mois »</li>
+          <li>Action « Ajouter une dépense » dans Raccourcis</li>
+          <li>Rappels : saisie, prélèvement du lendemain, point du dimanche</li>
+          <li>Verrouillage par Face ID ou code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="donnees">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Vos données</p>
+      <h2>Vos comptes ne regardent que vous</h2>
+      <p class="chapo">Une application d’argent doit d’abord être digne de confiance. Voici exactement ce que fait 4PMoney, et ce qu’elle ne fait pas.</p>
+    </div>
+    <div class="piliers">
+      <div class="pilier reveler"><h3>Aucune connexion bancaire</h3><p>4PMoney ne vous demande jamais vos identifiants bancaires et ne se connecte à aucune banque. Vous saisissez vos opérations ou importez un relevé que vous avez vous-même téléchargé.</p></div>
+      <div class="pilier reveler"><h3>Stockage chez vous</h3><p>Votre budget reste sur vos appareils et, si vous utilisez iCloud, dans votre espace iCloud privé. Nous n’avons pas de serveur qui contient vos opérations.</p></div>
+      <div class="pilier reveler"><h3>Mesure facultative, coupée par défaut</h3><p>Des statistiques d’usage et des diagnostics anonymes ne sont envoyés que si vous l’acceptez. Ils ne contiennent ni montant, ni libellé, ni nom de compte, et un seul interrupteur les arrête.</p></div>
+      <div class="pilier reveler"><h3>Vous repartez quand vous voulez</h3><p>Export CSV de vos opérations et sauvegarde complète de votre budget, à tout moment, y compris sans abonnement.</p></div>
+    </div>
+    <p class="avis reveler">4PMoney est un outil de suivi de budget. Ce n’est ni une banque ni un service de paiement, et l’application ne fournit pas de conseil financier. Le détail figure dans la <a href="confidentialite/">politique de confidentialité</a>.</p>
+  </div>
+</section>
+
+<section id="offres" class="teinte">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Offres</p>
+      <h2>Un abonnement simple, sans surprise</h2>
+      <p class="chapo">Le téléchargement est gratuit. Le prix de l’abonnement, mensuel ou annuel, dépend de votre pays : il est affiché dans l’application et sur l’App Store avant tout achat.</p>
+    </div>
+    <div class="offres">
+      <div class="offre reveler">
+        <h3>Sans abonnement</h3>
+        <p class="sous">Votre budget reste consultable.</p>
+        <ul>
+          <li>Consulter votre budget et vos opérations</li>
+          <li>Exporter vos données</li>
+          <li>Récupérer une sauvegarde</li>
+          <li class="non">Saisir ou modifier des opérations</li>
+          <li class="non">Préparer un nouveau mois</li>
+        </ul>
+      </div>
+      <div class="offre mise reveler">
+        <h3>Abonné</h3>
+        <p class="sous">Tout 4PMoney, au mois ou à l’année.</p>
+        <ul>
+          <li>Saisie, import de relevés et rapprochement</li>
+          <li>Budget mensuel, échéances et prévisions</li>
+          <li>Projets d’épargne et bilan complet</li>
+          <li>Widgets, rappels et synchronisation iCloud</li>
+          <li>Apple Watch incluse avec l’édition iPhone</li>
+        </ul>
+      </div>
+    </div>
+    <p class="avis reveler">L’abonnement se prend par édition : iPhone avec Apple Watch, iPad, ou Mac. Selon votre pays, l’App Store peut proposer une période d’essai. Le paiement et la résiliation passent par votre compte Apple.</p>
+  </div>
+</section>
+
+<section id="telecharger">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Télécharger</p>
+      <h2>Installez l’édition qui vous convient</h2>
+    </div>
+    <div class="tele">
+      <div class="edition reveler"><h3>iPhone et Apple Watch</h3><p>iOS 18 ou plus récent. L’app de la montre s’installe avec celle de l’iPhone.</p><a class="btn plein" href="https://apps.apple.com/app/id6820197348">Voir sur l’App Store</a></div>
+      <div class="edition reveler"><h3>iPad</h3><p>iPadOS 18 ou plus récent, avec barre latérale et clavier.</p><a class="btn plein" href="https://apps.apple.com/app/id6820198148">Voir sur l’App Store</a></div>
+      <div class="edition reveler"><h3>Mac</h3><p>Sur le Mac App Store, avec tableaux denses et saisie au clavier.</p><a class="btn plein" href="https://apps.apple.com/app/id6820197459">Voir sur le Mac App Store</a></div>
+    </div>
+    <ol class="pas reveler">
+      <li><b>Ouvrez l’App Store</b>depuis l’appareil concerné, par l’un des boutons ci-dessus ou en cherchant « 4PMoney ».</li>
+      <li><b>Touchez Obtenir</b>puis confirmez avec Face ID, Touch ID ou votre code Apple.</li>
+      <li><b>Indiquez votre revenu</b>au premier lancement : vos quatre enveloppes sont prêtes en une minute.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="questions" class="teinte">
+  <div class="wrap">
+    <div class="tete reveler">
+      <p class="sur">Questions fréquentes</p>
+      <h2>Avant de vous lancer</h2>
+    </div>
+    <div class="faq">
+      <details><summary>4PMoney se connecte-t-elle à ma banque ?</summary><p>Non. L’application ne demande aucun identifiant bancaire. Vous saisissez vos opérations à la main ou vous importez un relevé CSV, QIF ou OFX que vous avez téléchargé depuis l’espace client de votre banque. L’import est traité sur votre appareil.</p></details>
+      <details><summary>Dois-je ouvrir quatre comptes bancaires ?</summary><p>Non. Les quatre enveloppes sont une répartition de votre budget et peuvent partager un seul compte. Vous pouvez aussi suivre plusieurs comptes ; chaque opération indique le compte qui paie et l’enveloppe concernée.</p></details>
+      <details><summary>Puis-je changer la répartition 60 / 20 / 10 / 10 ?</summary><p>Oui. C’est le point de départ de la méthode. Vous réglez les quatre pourcentages comme vous voulez, pourvu que leur total fasse 100 %.</p></details>
+      <details><summary>Que se passe-t-il si mes charges dépassent 60 % ?</summary><p>Les charges essentielles restent prioritaires. 4PMoney calcule ce qu’il reste et propose de le partager entre Plaisir, Profiter et Protéger. Rien n’est appliqué sans votre validation.</p></details>
+      <details><summary>Nous sommes deux à gérer le budget, est-ce prévu ?</summary><p>Vous pouvez déclarer les membres du foyer, additionner plusieurs revenus et partager une dépense entre vous. Le budget se synchronise entre les appareils reliés au même compte iCloud ; il n’y a pas, aujourd’hui, de partage entre deux comptes iCloud différents.</p></details>
+      <details><summary>Quelles devises et quelles langues ?</summary><p>Les montants sont en euros. L’application est disponible en français, anglais, allemand, espagnol, italien et portugais, avec les variantes du Canada et du Brésil.</p></details>
+      <details><summary>Que deviennent mes données si j’arrête l’abonnement ?</summary><p>Elles restent sur vos appareils. Vous pouvez toujours les consulter, les exporter et récupérer une sauvegarde. Seules la saisie et la modification sont suspendues.</p></details>
+      <details><summary>Comment résilier ?</summary><p>Dans les réglages de votre compte Apple, rubrique Abonnements. L’accès reste ouvert jusqu’à la fin de la période déjà payée.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="aide">
+  <div class="wrap fin reveler">
+    <img src="assets/icon.png" alt="" width="176" height="176">
+    <h2>Reprenez la main sur votre mois</h2>
+    <p class="chapo">Une question, un souci, une idée ? Écrivez-nous, une personne vous répond.</p>
+    <div class="actions">
+      <a class="btn plein" href="#telecharger">Télécharger 4PMoney</a>
+      <a class="btn contour" href="mailto:abdelhafid.younes@gmail.com?subject=4PMoney">Contacter l’assistance</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Liens utiles">
+      <a href="confidentialite/">Politique de confidentialité</a>
+      <a href="privacy/" lang="en" hreflang="en">Privacy policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Conditions d’utilisation (Apple)</a>
+      <a href="mailto:abdelhafid.younes@gmail.com?subject=4PMoney">Contact</a>
+    </nav>
+    <p>4PMoney est un outil de suivi de budget personnel. Les écrans présentés montrent des données de démonstration. Apple, iPhone, iPad, Mac, Apple Watch, iCloud et App Store sont des marques d’Apple Inc.</p>
+    <p>© 2026 Abdelhafid YOUNES</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var racine=document.documentElement,cle="4pmoney-theme";
+  function sombre(){var t=racine.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+  function images(){var s=sombre();document.querySelectorAll("img[data-sombre]").forEach(function(i){i.src=s?i.dataset.sombre:i.dataset.clair})}
+  try{var m=localStorage.getItem(cle);if(m)racine.setAttribute("data-theme",m)}catch(e){}
+  images();
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change",images);
+  document.getElementById("theme").addEventListener("click",function(){
+    var n=sombre()?"light":"dark";racine.setAttribute("data-theme",n);
+    try{localStorage.setItem(cle,n)}catch(e){}images();
+  });
+
+  var entier=new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0});
+  var centimes=new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"});
+  var euros={format:function(v){return (Math.round(v*100)%100===0?entier:centimes).format(v)}};
+  var rev=document.getElementById("revenu"),cha=document.getElementById("charges");
+  var lignes=document.getElementById("lignes"),verdict=document.getElementById("verdict");
+  var noms=[["Prévoir","--prevoir"],["Plaisir","--plaisir"],["Profiter","--profiter"],["Protéger","--proteger"]];
+  noms.forEach(function(n){
+    var d=document.createElement("div");d.className="ligne";
+    d.innerHTML='<b>'+n[0]+'</b><span class="jauge"><i style="background:var('+n[1]+')"></i></span><span class="somme num"></span>';
+    lignes.appendChild(d);
+  });
+  function calcul(){
+    var r=+rev.value;cha.max=r;if(+cha.value>r)cha.value=r;var c=+cha.value;
+    document.getElementById("o-revenu").textContent=euros.format(r);
+    document.getElementById("o-charges").textContent=euros.format(c);
+    var base=r*0.6,parts,texte,alerte=false;
+    if(c>base){
+      var reste=r-c;parts=[c,reste*0.5,reste*0.25,reste*0.25];alerte=true;
+      texte="Prévoir dépasse son repère de "+euros.format(c-base)+". Il reste "+euros.format(reste)+" à partager : la moitié pour Plaisir, un quart pour Profiter, un quart pour Protéger.";
+    }else{
+      parts=[base,r*0.2,r*0.1,r*0.1];
+      texte=c<base?"Vos charges tiennent dans Prévoir. Les "+euros.format(base-c)+" non utilisés pourront renforcer Protéger.":"Vos charges correspondent exactement au repère de 60 %.";
+    }
+    Array.prototype.forEach.call(lignes.children,function(d,i){
+      d.querySelector("i").style.width=Math.max(0,Math.min(100,parts[i]/r*100))+"%";
+      d.querySelector(".somme").textContent=euros.format(parts[i]);
+    });
+    verdict.textContent=texte;verdict.className="verdict"+(alerte?" alerte":"");
+  }
+  rev.addEventListener("input",calcul);cha.addEventListener("input",calcul);calcul();
+
+  var els=document.querySelectorAll(".reveler");
+  if("IntersectionObserver" in window){
+    var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("vu");obs.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px"});
+    els.forEach(function(e){obs.observe(e)});
+  }else{els.forEach(function(e){e.classList.add("vu")})}
+})();
+</script>
 </body>
 </html>
