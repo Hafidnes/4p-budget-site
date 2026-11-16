@@ -9,6 +9,8 @@
 <meta name="theme-color" content="#101816" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="assets/touch-icon.png">
 <link rel="apple-touch-icon" href="assets/touch-icon.png">
+<link rel="alternate" hreflang="fr" href="https://hafidnes.github.io/4p-budget-site/">
+<link rel="alternate" hreflang="en" href="https://hafidnes.github.io/4p-budget-site/en/">
 <meta property="og:title" content="4PMoney — Le budget du foyer en quatre enveloppes">
 <meta property="og:description" content="Prévoir, Plaisir, Profiter, Protéger : une méthode simple, une application sobre, vos données chez vous.">
 <meta property="og:image" content="assets/icon.png">
@@ -58,6 +60,9 @@ header.barre{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(-
 .barre nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.95rem}
 .barre nav a{color:var(--doux);text-decoration:none}.barre nav a:hover{color:var(--encre)}
 .theme{border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;width:2.5rem;height:2.5rem;cursor:pointer;font-size:1rem}
+.langue{display:inline-grid;place-items:center;border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;height:2.5rem;padding:0 .8rem;font-size:.85rem;font-weight:650;letter-spacing:.04em;text-decoration:none}.langue:hover{border-color:var(--accent)}
+@media (max-width:26rem){.barre .wrap{gap:.45rem}.langue{padding:0 .55rem}.barre .btn.petit{padding-left:.8rem;padding-right:.8rem}}
+@media (max-width:23rem){.marque{font-size:0;gap:0}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-weight:650;text-decoration:none;border:1px solid transparent}
 .btn.plein{background:var(--accent);color:var(--accent-encre)}
 .btn.contour{border-color:var(--trait);color:var(--encre);background:var(--carte)}
@@ -288,6 +293,7 @@ header.barre{box-shadow:0 10px 24px -20px rgba(8,14,13,.5)}
       <a href="#questions">Questions</a>
     </nav>
     <button class="theme" id="theme" type="button" aria-label="Changer de thème clair ou sombre">◐</button>
+    <a class="langue" href="en/" lang="en" hreflang="en" aria-label="Read in English">EN</a>
     <a class="btn plein petit" href="#telecharger">Télécharger</a>
   </div>
 </header>
@@ -536,6 +542,7 @@ header.barre{box-shadow:0 10px 24px -20px rgba(8,14,13,.5)}
     <nav aria-label="Liens utiles">
       <a href="confidentialite/">Politique de confidentialité</a>
       <a href="privacy/" lang="en" hreflang="en">Privacy policy</a>
+      <a href="en/" lang="en" hreflang="en">English version</a>
       <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Conditions d’utilisation (Apple)</a>
       <a href="mailto:abdelhafid.younes@gmail.com?subject=4PMoney">Contact</a>
     </nav>
