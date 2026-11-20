@@ -1,15 +1,364 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Your budget stays on your devices and, if you use it, in your private iCloud space. Analytics and diagnostics are optional and off by default. Apple and RevenueCat verify subscriptions."><title>4PMoney — Privacy policy</title><link rel="stylesheet" href="../style.css"></head>
-<body><a class="skip-link" href="#content">Skip to content</a><header><a class="brand" href="../en/">4PMoney</a><nav aria-label="Language"><a href="../confidentialite/" lang="fr" hreflang="fr">Français</a><a href="../privacy/" lang="en" hreflang="en" aria-current="page">English</a><a href="de/" lang="de" hreflang="de">Deutsch</a><a href="es/" lang="es" hreflang="es">Español</a><a href="it/" lang="it" hreflang="it">Italiano</a><a href="pt/" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a><a href="pt-br/" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></nav></header>
-<main id="content"><h1>Privacy policy</h1><p class="updated">Updated: 15 November 2026 · Abdelhafid YOUNES</p><p class="summary">Your budget stays on your devices and, if you use it, in your private iCloud space. Analytics and diagnostics are optional and off by default. Apple and RevenueCat verify subscriptions.</p><section aria-labelledby="section-1"><h2 id="section-1">1. Who is responsible?</h2><p>Abdelhafid YOUNES, the independent publisher of 4PMoney, is the controller for the processing described here. For privacy questions and requests, contact <a href="mailto:abdelhafid.younes@gmail.com">abdelhafid.younes@gmail.com</a>.</p></section>
-<section aria-labelledby="section-2"><h2 id="section-2">2. Your budget, devices and iCloud</h2><p>You enter income, expenses, accounts, descriptions, envelopes, scheduled items, goals and preferences to obtain the calculations and tracking you request. Bank accounts are entered manually: 4PMoney does not connect to your bank or execute bank transfers.</p><p>Your budget is stored on your device. When iCloud is configured and available, the relevant data syncs in your private iCloud space across devices using the same Apple Account. The publisher does not operate a central server containing your budgets.</p><p>Exports, backups and shared files contain the data you choose to send. You choose their location and recipients. File sharing is not real-time sync between two Apple Accounts. The export feature does not send those files to analytics, diagnostic or subscription services.</p></section>
-<section aria-labelledby="section-3"><h2 id="section-3">3. Purchases, trials and restoration</h2><p>Apple processes payments. RevenueCat verifies purchases, trials and access rights and enables restoration. It processes a pseudonymous technical identifier, products and transactions, their status, receipts and the metadata needed for verification. Its SDK may contact the service at launch independently of optional analytics consent. It does not receive budget amounts or descriptions. 4PMoney does not receive your payment card number.</p><p>A local pending-purchase record stores a reference date and the type of verification to resume, separately for each edition and technical identity. It contains neither a budget nor proof of payment. It is removed when access confirmation, restoration or explicit cancellation resolves the attempt; an error can delay resolution. Removing this record or a RevenueCat profile does not cancel an Apple subscription. Manage subscriptions in your Apple Account. Budget viewing, export and recovery remain available after a subscription ends.</p></section>
-<section aria-labelledby="section-4"><h2 id="section-4">4. Optional analytics — PostHog</h2><p>Analytics and diagnostics share a single choice, “Help improve the app”, which is off by default. The app asks once and you can change your answer in Settings → Privacy, separately on each device. Events come from a fixed list: app launch, the screen viewed, a completed action (setup finished; a transaction, transfer, scheduled payment, month carry-over, import, statement check, savings goal or deposit saved; a receipt attached; an organisation rule saved), the steps of a purchase (subscription screen viewed, purchase started, completed, cancelled or pending, restoration completed), a failure shown to you identified by a fixed code such as “save_failed”, and a technical test. An event says that something happened, never what it was about or how much: it carries no amount, description, category or account name. Each event includes the app version, edition, environment and a pseudonymous installation identifier.</p><p>Unapproved properties, including budget amounts, descriptions and account names, are filtered before transmission. Person profiles, automatic interaction capture and session recording are disabled. The project uses PostHog Cloud EU, hosted in Frankfurt, with IP anonymization enabled and event geolocation disabled. An IP address is still needed for network transport; this does not mean providers process no network metadata.</p></section>
-<section aria-labelledby="section-5"><h2 id="section-5">5. Optional diagnostics — Sentry</h2><p>Diagnostics are covered by the same choice and are also off by default. With your consent, Sentry receives scrubbed crashes, errors and technical stack traces to investigate faults, together with the app version, edition and environment, the operating system version and the device model. It also receives the failures identified by a fixed code described above, the names of the last screens and completed actions before a fault (taken from the same fixed list), and anonymous usage sessions — a start, an end and whether the app crashed, with a random installation identifier — used to measure stability per version. Filtering removes user data, requests, error messages, free text and budget information from the transmitted signal. Session replay, screenshots and automatic log collection are disabled. The configured ingestion endpoint is European.</p><p>Withdrawing your consent stops new uploads to both services; it does not automatically delete events already received. You can request deletion using the contact above. Declining does not prevent you from using budgets or purchases.</p></section>
-<section aria-labelledby="section-6"><h2 id="section-6">6. Permissions and support</h2><p>Authorized notifications provide reminders. If biometric locking is enabled, authentication is performed by Apple’s system; 4PMoney does not receive your fingerprint or biometric model. You can change permissions in system settings.</p><p>If you email support, your address and the content you send are processed to answer your request. The support mailbox is hosted by Google/Gmail. Avoid sending an entire budget, passwords or bank details; redact private information in screenshots.</p></section>
-<section aria-labelledby="section-7"><h2 id="section-7">7. Purposes and legal bases</h2><p>Budget tracking, the sync you use, exports and access verification are necessary to perform the service you request (GDPR Article 6(1)(b)). Optional analytics and diagnostics rely on consent (6(1)(a)). Support and service security rely on the legitimate interest in answering requests and preventing incidents (6(1)(f)), subject to your rights. Processing required by law relies on Article 6(1)(c). 4PMoney does not use your budget for advertising, sell it or make decisions with legal effects based on a financial profile.</p></section>
-<section aria-labelledby="section-8"><h2 id="section-8">8. Retention and deletion</h2><p><strong>Budgets and files:</strong> data remains in the locations you use until you delete it: the app, your iCloud space, backups and exports. Delete items in the app, manage iCloud copies through Apple settings and delete exported files separately. Uninstalling the app does not delete all these copies. The publisher cannot remotely delete a budget it cannot access.</p><p><strong>PostHog analytics:</strong> the publisher sets a maximum retention of twelve months from each event. Expired-event deletion is followed up through periodic reviews; withdrawing consent does not automatically erase prior events. PostHog’s query window is not a data deletion mechanism.</p><p><strong>Sentry diagnostics:</strong> error events and usage sessions follow the Sentry plan’s retention of thirty to ninety days, depending on the plan; 4PMoney does not archive them separately.</p><p><strong>RevenueCat:</strong> information needed for access remains available during the subscription and for restoration. The publisher plans deletion no later than twenty-four months after the last entitlement expires, provided there is no new purchase activity, dispute or obligation justifying specific retention. A later restoration can recreate a profile from Apple’s history. Apple applies its own retention rules to its transaction records.</p><p><strong>Support:</strong> 4PMoney correspondence is kept while a request is handled and for no more than twenty-four months after closure, except for information needed for a legal obligation or dispute. Only necessary information is retained for the applicable period in that case. Provider deletion requests may be asynchronous; technical backups follow the provider’s deletion cycle and are not used for routine analytics.</p></section>
-<section aria-labelledby="section-9"><h2 id="section-9">9. Providers and international transfers</h2><p>Apple provides system services, iCloud and payments; RevenueCat, Inc. handles subscriptions; PostHog provides optional analytics; Functional Software, Inc. (Sentry) provides optional diagnostics; Google hosts support email; and GitHub, Inc. hosts these pages. Access by the publisher and these providers is limited to the functions described. The data is not all combined in a single service.</p><p>European collection endpoints at PostHog and Sentry do not rule out all processing or access from other countries. Providers or subprocessors may operate in the United States, in particular. Their data processing agreements describe recipients and mechanisms for transfers outside the European Economic Area, including European Commission Standard Contractual Clauses where applicable. You can request details and a copy of the applicable safeguards using the contact at the top of this page. This policy does not claim that all processing stays within the European Union.</p></section>
-<section aria-labelledby="section-10"><h2 id="section-10">10. These web pages</h2><p>This static site contains no forms, analytics scripts, external fonts or payment tools. GitHub Pages processes visitor IP addresses for hosting security. Visiting these pages does not send your budget to the site. External services linked here are contacted only when you follow a link.</p></section>
-<section aria-labelledby="section-11"><h2 id="section-11">11. Your rights and updates</h2><p>Subject to GDPR conditions, you can request access, correction, deletion, portability or restriction and object to processing based on legitimate interests. You can withdraw consent at any time without affecting earlier lawful processing.</p><p>Email <a href="mailto:abdelhafid.younes@gmail.com">abdelhafid.younes@gmail.com</a>, mentioning 4PMoney and the service concerned. A technical identifier or proportionate information may be needed to locate pseudonymous data; we do not ask for your Apple password or a complete budget. We respond within one month; for complex requests, any reasoned extension is notified within that first month. If data cannot be located without sufficient identification, we explain this.</p><p>You may complain to the <a href="https://www.cnil.fr/en">CNIL</a> or your local supervisory authority. Changes in practices will be reflected on this page with an updated date. New consent will be requested where necessary.</p></section>
-<section><h2>Provider documentation</h2><ul><li><a href="https://www.apple.com/legal/privacy/">Apple</a></li><li><a href="https://www.revenuecat.com/dpa">RevenueCat DPA</a></li><li><a href="https://posthog.com/docs/privacy">PostHog privacy</a></li><li><a href="https://sentry.io/legal/dpa/">Sentry DPA</a></li><li><a href="https://docs.sentry.io/security-legal-pii/security/data-retention-periods/">Sentry retention</a></li><li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages</a></li></ul></section></main><footer>4PMoney · <a href="../en/">Help and the 4P method</a></footer></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4PMoney — Privacy policy</title>
+<meta name="description" content="Your budget stays on your devices and, if you use it, in your private iCloud space. Analytics and diagnostics are optional and off by default. Apple and RevenueCat verify subscriptions.">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101816" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../assets/touch-icon.png">
+<link rel="apple-touch-icon" href="../assets/touch-icon.png">
+<style>
+:root{
+  --fond:#faf7f2;--carte:#fffdf9;--teinte:#f1ede4;--encre:#16211f;--doux:#56635f;--trait:#e0dacd;
+  --accent:#0d514a;--accent-encre:#ffffff;--accent-doux:#dfe6e1;
+  --prevoir:#2f6fd6;--plaisir:#b9770a;--profiter:#7a4fd0;--proteger:#0b8a62;
+  --prevoir-f:#e8edf6;--plaisir-f:#fbf0e2;--profiter-f:#f0e6f4;--proteger-f:#e2f1e9;
+  --alerte:#a3540c;--ombre:0 18px 50px rgba(22,33,31,.12);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --fond:#101816;--carte:#19221f;--teinte:#151e1b;--encre:#eef3f0;--doux:#a7b5af;--trait:#2b3733;
+  --accent:#7fd2bb;--accent-encre:#0c1b18;--accent-doux:#20302b;
+  --prevoir:#8fb6ff;--plaisir:#f1b65a;--profiter:#c2a4ff;--proteger:#6fd6b0;
+  --prevoir-f:#1d2a3f;--plaisir-f:#352c1c;--profiter-f:#2c2540;--proteger-f:#17332a;
+  --alerte:#f0a35a;--ombre:0 18px 50px rgba(0,0,0,.45);
+}}
+:root[data-theme="dark"]{
+  --fond:#101816;--carte:#19221f;--teinte:#151e1b;--encre:#eef3f0;--doux:#a7b5af;--trait:#2b3733;
+  --accent:#7fd2bb;--accent-encre:#0c1b18;--accent-doux:#20302b;
+  --prevoir:#8fb6ff;--plaisir:#f1b65a;--profiter:#c2a4ff;--proteger:#6fd6b0;
+  --prevoir-f:#1d2a3f;--plaisir-f:#352c1c;--profiter-f:#2c2540;--proteger-f:#17332a;
+  --alerte:#f0a35a;--ombre:0 18px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fond);color:var(--encre);font:1.0625rem/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",system-ui,sans-serif;overflow-wrap:break-word}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-underline-offset:.2em}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--plaisir);outline-offset:3px;border-radius:6px}
+.wrap{max-width:70rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-family:"New York","Iowan Old Style",Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,6vw,3.7rem)}
+h2{font-size:clamp(1.7rem,4vw,2.5rem)}
+h3{font-size:1.25rem;font-family:inherit;font-weight:650;letter-spacing:0}
+p{margin:0}
+.sur{font-size:.8125rem;font-weight:650;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.chapo{font-size:1.2rem;color:var(--doux);max-width:38rem}
+.num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--carte);padding:.5rem 1rem;z-index:20}
+
+header.barre{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--fond) 88%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--trait)}
+.barre .wrap{display:flex;align-items:center;gap:1rem;min-height:3.75rem}
+.marque{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.1rem;color:var(--encre);text-decoration:none}
+.marque img{width:2rem;height:2rem;border-radius:.5rem}
+.barre nav{margin-left:auto;display:flex;gap:1.4rem;font-size:.95rem}
+.barre nav a{color:var(--doux);text-decoration:none}.barre nav a:hover{color:var(--encre)}
+.theme{border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;width:2.5rem;height:2.5rem;cursor:pointer;font-size:1rem}
+.langue{display:inline-grid;place-items:center;border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;height:2.5rem;padding:0 .8rem;font-size:.85rem;font-weight:650;letter-spacing:.04em;text-decoration:none}.langue:hover{border-color:var(--accent)}
+@media (max-width:26rem){.barre .wrap{gap:.45rem}.langue{padding:0 .55rem}.barre .btn.petit{padding-left:.8rem;padding-right:.8rem}}
+@media (max-width:23rem){.marque{font-size:0;gap:0}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.7rem 1.4rem;border-radius:999px;font-weight:650;text-decoration:none;border:1px solid transparent}
+.btn.plein{background:var(--accent);color:var(--accent-encre)}
+.btn.contour{border-color:var(--trait);color:var(--encre);background:var(--carte)}
+.btn.petit{min-height:2.5rem;padding:.4rem 1rem;font-size:.95rem}
+
+.hero{padding:4rem 0 3rem}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+.hero h1{margin:.9rem 0 1.2rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.8rem}
+.garanties{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;color:var(--doux);font-size:.95rem}
+.garanties li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:.45rem}
+.scene{position:relative;display:flex;justify-content:center;min-height:34rem}
+.tel{width:min(19rem,74vw);border-radius:2.9rem;padding:.55rem;background:#0c1211;box-shadow:var(--ombre);border:1px solid #2a3532}
+.tel img{border-radius:2.4rem;width:100%;aspect-ratio:1170/2532;object-fit:cover}
+.montre{position:absolute;right:0;bottom:1.5rem;width:9.5rem;border-radius:2.2rem;padding:.5rem;background:#0c1211;border:1px solid #2a3532;box-shadow:var(--ombre)}
+.montre img{border-radius:1.8rem}
+
+section{padding:4.5rem 0}
+section.teinte{background:var(--teinte);border-block:1px solid var(--trait)}
+.tete{max-width:44rem;margin-bottom:2.5rem}.tete h2{margin:.7rem 0 1rem}
+
+.quatre{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.env{border-radius:1.4rem;padding:1.4rem;border:1px solid var(--trait);position:relative;overflow:hidden}
+.env::before{content:"";position:absolute;inset:0 0 auto 0;height:1.4rem;clip-path:polygon(0 0,100% 0,50% 100%);opacity:.5;background:currentColor}
+.env.prevoir{background:var(--prevoir-f);color:var(--prevoir)}.env.plaisir{background:var(--plaisir-f);color:var(--plaisir)}
+.env.profiter{background:var(--profiter-f);color:var(--profiter)}.env.proteger{background:var(--proteger-f);color:var(--proteger)}
+.env h3{margin-top:1.2rem;color:var(--encre)}
+.env .part{font-size:2.3rem;font-weight:700;font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;line-height:1.1;margin:.4rem 0}
+.env p{color:var(--encre);opacity:.82;font-size:.95rem}
+
+.simu{margin-top:2rem;background:var(--carte);border:1px solid var(--trait);border-radius:1.6rem;padding:1.6rem;box-shadow:var(--ombre);display:grid;grid-template-columns:.9fr 1.1fr;gap:2rem}
+.simu label{display:flex;justify-content:space-between;gap:1rem;font-weight:600;margin-bottom:.4rem}
+.simu label output{font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;color:var(--accent)}
+.simu input[type=range]{width:100%;accent-color:var(--accent);height:2rem}
+.champ{margin-bottom:1.3rem}
+.simu .note{font-size:.9rem;color:var(--doux)}
+.lignes{display:grid;gap:.7rem}
+.ligne{display:grid;grid-template-columns:6.2rem 1fr 6.6rem;align-items:center;gap:.8rem;font-size:.98rem}
+.ligne b{font-weight:650}
+.jauge{height:.7rem;border-radius:999px;background:var(--accent-doux);overflow:hidden}
+.jauge i{display:block;height:100%;border-radius:999px;width:0;transition:width .35s ease}
+.ligne .somme{text-align:right;font-family:ui-rounded,"SF Pro Rounded",system-ui,sans-serif;font-weight:650}
+.verdict{margin-top:1.1rem;padding:.9rem 1rem;border-radius:.9rem;background:var(--accent-doux);font-size:.95rem}
+.verdict.alerte{color:var(--alerte);background:color-mix(in srgb,var(--alerte) 12%,var(--carte))}
+
+.regles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.regle{background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.3rem}
+.regle h3{margin-bottom:.5rem;font-size:1.08rem}.regle p{color:var(--doux);font-size:.97rem}
+
+.etapes{display:grid;gap:3.5rem}
+.etape{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.etape:nth-child(even) .visuel{order:-1}
+.etape .rang{display:inline-grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:999px;background:var(--accent);color:var(--accent-encre);font-weight:700;margin-bottom:1rem}
+.etape h3{font-size:1.5rem;margin-bottom:.7rem}.etape p{color:var(--doux)}
+.etape ul{margin:1rem 0 0;padding-left:1.1rem;color:var(--doux)}.etape li{margin:.3rem 0}
+.visuel{display:flex;justify-content:center}
+.visuel .tel{width:min(16.5rem,70vw)}
+
+.appareils{display:grid;grid-template-columns:1.5fr 1fr;gap:1.2rem}
+.app{background:var(--carte);border:1px solid var(--trait);border-radius:1.5rem;padding:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.app h3{margin-bottom:.3rem}.app p{color:var(--doux);font-size:.97rem}
+.app .cadre{border-radius:1rem;overflow:hidden;border:1px solid var(--trait);margin-top:auto}
+.app.ipad .cadre{max-height:23rem}.app.ipad .cadre img{width:100%;object-fit:cover;object-position:top}
+.app.large{grid-column:1/-1}
+
+.piliers{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.pilier{background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.4rem}
+.pilier h3{margin-bottom:.5rem}.pilier p{color:var(--doux)}
+.avis{margin-top:1.5rem;font-size:.95rem;color:var(--doux);border-left:3px solid var(--accent);padding-left:1rem;max-width:48rem}
+
+.offres{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;max-width:56rem}
+.offre{background:var(--carte);border:1px solid var(--trait);border-radius:1.5rem;padding:1.6rem}
+.offre.mise{border:2px solid var(--accent)}
+.offre h3{font-size:1.35rem}.offre .sous{color:var(--doux);margin:.3rem 0 1rem}
+.offre ul{list-style:none;padding:0;margin:0;display:grid;gap:.55rem}
+.offre li{padding-left:1.6rem;position:relative}
+.offre li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+.offre li.non{color:var(--doux)}.offre li.non::before{content:"–";color:var(--doux)}
+
+.tele{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.edition{background:var(--carte);border:1px solid var(--trait);border-radius:1.4rem;padding:1.5rem;display:flex;flex-direction:column;gap:.7rem;align-items:flex-start}
+.edition p{color:var(--doux);font-size:.97rem;flex:1}
+.pas{counter-reset:pas;list-style:none;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.pas li{counter-increment:pas;padding-left:2.8rem;position:relative;color:var(--doux)}
+.pas li::before{content:counter(pas);position:absolute;left:0;top:0;width:2rem;height:2rem;border-radius:999px;border:1.5px solid var(--accent);color:var(--accent);display:grid;place-items:center;font-weight:700}
+.pas b{color:var(--encre);display:block}
+
+.faq{max-width:48rem}
+details{border-bottom:1px solid var(--trait);padding:1.1rem 0}
+summary{cursor:pointer;font-weight:650;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:.7rem;color:var(--doux)}
+
+.fin{text-align:center}.fin img{width:5.5rem;height:5.5rem;border-radius:1.3rem;margin:0 auto 1.4rem;box-shadow:var(--ombre)}
+.fin .chapo{margin:1rem auto 0}.fin .actions{justify-content:center}
+footer{border-top:1px solid var(--trait);padding:2rem 0 3rem;font-size:.9rem;color:var(--doux)}
+footer .wrap{display:grid;gap:.8rem}
+footer nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+
+.reveler{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveler.vu{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveler{opacity:1;transform:none;transition:none}.jauge i{transition:none}}
+@media (max-width:60rem){
+  .hero .wrap,.simu,.etape,.appareils{grid-template-columns:1fr}
+  .etape:nth-child(even) .visuel{order:0}
+  .quatre,.piliers{grid-template-columns:repeat(2,1fr)}
+  .regles,.tele,.pas{grid-template-columns:1fr}
+  .barre nav{display:none}.theme{margin-left:auto}
+  .scene{min-height:0}
+}
+@media (max-width:36rem){
+  section{padding:3.2rem 0}.hero{padding:2.5rem 0 2rem}
+  .wrap{padding:0 1rem}
+  .quatre,.piliers,.offres{grid-template-columns:1fr}
+  .montre{width:7.5rem;right:-.2rem}
+  .ligne{grid-template-columns:5.2rem 1fr 5.6rem;gap:.5rem;font-size:.92rem}
+  .btn{width:100%}
+  .barre .btn{width:auto}.marque{flex-shrink:0}
+}
+
+/* ——— Profondeur : lumière, relief et plans successifs ——— */
+:root{
+  --relief:0 1px 2px rgba(22,33,31,.06),0 6px 14px -4px rgba(22,33,31,.08),0 22px 44px -18px rgba(22,33,31,.16);
+  --relief-haut:0 2px 4px rgba(22,33,31,.07),0 14px 28px -8px rgba(22,33,31,.14),0 40px 70px -24px rgba(22,33,31,.24);
+  --appareil:0 2px 3px rgba(8,14,13,.35),0 18px 30px -10px rgba(8,14,13,.32),0 60px 90px -30px rgba(8,14,13,.42);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.75);--halo:.30;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --relief:0 1px 2px rgba(0,0,0,.35),0 8px 18px -6px rgba(0,0,0,.4),0 26px 50px -20px rgba(0,0,0,.55);
+  --relief-haut:0 2px 4px rgba(0,0,0,.4),0 16px 32px -8px rgba(0,0,0,.5),0 44px 80px -24px rgba(0,0,0,.7);
+  --appareil:0 2px 3px rgba(0,0,0,.6),0 18px 30px -10px rgba(0,0,0,.6),0 60px 90px -30px rgba(0,0,0,.8);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.06);--halo:.22;
+}}
+:root[data-theme="dark"]{
+  --relief:0 1px 2px rgba(0,0,0,.35),0 8px 18px -6px rgba(0,0,0,.4),0 26px 50px -20px rgba(0,0,0,.55);
+  --relief-haut:0 2px 4px rgba(0,0,0,.4),0 16px 32px -8px rgba(0,0,0,.5),0 44px 80px -24px rgba(0,0,0,.7);
+  --appareil:0 2px 3px rgba(0,0,0,.6),0 18px 30px -10px rgba(0,0,0,.6),0 60px 90px -30px rgba(0,0,0,.8);
+  --reflet:inset 0 1px 0 rgba(255,255,255,.06);--halo:.22;
+}
+
+/* Les appareils inclinés ne doivent jamais élargir la page. */
+main{overflow-x:clip}
+/* Fond du haut de page : quatre lueurs aux couleurs des enveloppes, derrière tout le reste. */
+.hero{position:relative;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:-20% -10% -10%;z-index:-1;pointer-events:none;opacity:var(--halo);filter:blur(60px);
+  background:
+    radial-gradient(34rem 26rem at 78% 30%,var(--prevoir),transparent 70%),
+    radial-gradient(26rem 22rem at 96% 72%,var(--profiter),transparent 70%),
+    radial-gradient(24rem 20rem at 58% 88%,var(--plaisir),transparent 70%),
+    radial-gradient(26rem 20rem at 8% 6%,var(--proteger),transparent 70%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:7rem;z-index:-1;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--fond))}
+
+/* Téléphone : châssis à reflet, encoche étroite, vitre, ombre portée en trois couches. */
+.tel{position:relative;background:linear-gradient(145deg,#4b5654 0%,#0c1211 22%,#0a0f0e 78%,#39433f 100%);border:0;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),inset 0 0 0 3px #050908,var(--appareil)}
+.tel::before{content:"";position:absolute;z-index:2;left:50%;top:calc(.55rem + 1.55%);width:20%;aspect-ratio:3.2/1;transform:translateX(-50%);border-radius:999px;
+  background:radial-gradient(circle at 76% 50%,#1b2a3a 0 9%,#0b1016 10% 15%,transparent 16%),#000;box-shadow:0 0 0 1px rgba(255,255,255,.05)}
+.tel::after{content:"";position:absolute;inset:.55rem;z-index:1;border-radius:2.4rem;pointer-events:none;
+  background:linear-gradient(118deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.04) 22%,transparent 38%)}
+.visuel .tel::before{top:calc(.55rem + 1.55%)}
+.montre{background:linear-gradient(145deg,#4b5654 0%,#0c1211 24%,#0a0f0e 76%,#39433f 100%);border:0;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.14),var(--appareil)}
+
+/* Scène d'ouverture : téléphone incliné, montre au premier plan, socle lumineux et ombre au sol. */
+.scene{perspective:1500px;--tx:0;--ty:0;--d:0px}
+.scene::before{content:"";position:absolute;left:50%;top:46%;width:30rem;max-width:120%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,color-mix(in srgb,var(--carte) 85%,transparent),transparent 72%)}
+.scene::after{content:"";position:absolute;left:50%;bottom:-1.6rem;width:19rem;max-width:80%;height:2.6rem;transform:translateX(-46%);border-radius:50%;z-index:-1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(8,14,13,.38),transparent);filter:blur(10px)}
+.scene .tel{transform:translateY(calc(var(--d) * -.35)) rotateY(calc(-13deg + var(--tx) * 6deg)) rotateX(calc(5deg + var(--ty) * -5deg)) rotateZ(1.2deg);transform-origin:50% 60%;transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+.scene .montre{z-index:3;transform:translateY(calc(var(--d) * -.9)) translateZ(90px) rotateY(calc(9deg + var(--tx) * 9deg)) rotateX(calc(var(--ty) * -6deg)) rotateZ(-3deg);transition:transform .5s cubic-bezier(.2,.7,.2,1);will-change:transform}
+
+/* Captures des étapes : inclinaison alternée et lueur de la couleur de l'enveloppe concernée. */
+.visuel{perspective:1300px;position:relative;isolation:isolate}
+.visuel::before{content:"";position:absolute;left:50%;top:50%;width:26rem;max-width:115%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:-1;pointer-events:none;filter:blur(40px);opacity:var(--halo);
+  background:radial-gradient(closest-side,var(--lueur,var(--prevoir)),transparent 75%)}
+.etape:nth-child(2) .visuel{--lueur:var(--plaisir)}.etape:nth-child(3) .visuel{--lueur:var(--proteger)}
+.visuel .tel{transform:rotateY(-11deg) rotateX(3deg);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.etape:nth-child(even) .visuel .tel{transform:rotateY(11deg) rotateX(3deg)}
+.etape:hover .visuel .tel{transform:rotateY(-4deg) rotateX(1deg) translateY(-6px)}
+.etape:nth-child(even):hover .visuel .tel{transform:rotateY(4deg) rotateX(1deg) translateY(-6px)}
+
+/* Cartes : reflet en haut, ombre en couches, léger soulèvement au survol. */
+.env,.regle,.app,.pilier,.offre,.edition{box-shadow:var(--reflet),var(--relief);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.simu{box-shadow:var(--reflet),var(--relief-haut)}
+.offre.mise{box-shadow:var(--reflet),var(--relief-haut);transform:translateY(-.5rem)}
+@media (hover:hover){
+  .env:hover,.regle:hover,.app:hover,.pilier:hover,.edition:hover,.offre:hover{transform:translateY(-5px);box-shadow:var(--reflet),var(--relief-haut)}
+  .offre.mise:hover{transform:translateY(-.8rem)}
+}
+.env{background-image:linear-gradient(160deg,color-mix(in srgb,var(--carte) 55%,transparent),transparent 55%)}
+.app .cadre{box-shadow:var(--relief)}
+.btn.plein{box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 18px -8px color-mix(in srgb,var(--accent) 70%,transparent)}
+.btn{transition:transform .2s ease,box-shadow .2s ease}.btn:hover{transform:translateY(-1px)}
+.fin img{box-shadow:var(--relief-haut)}
+.etape .rang{box-shadow:0 6px 14px -6px color-mix(in srgb,var(--accent) 80%,transparent)}
+
+/* Sections teintées : en creux, comme un plan situé derrière la page. */
+section.teinte{background:linear-gradient(to bottom,color-mix(in srgb,var(--teinte) 100%,transparent),var(--teinte) 60%,color-mix(in srgb,var(--teinte) 70%,var(--fond)));box-shadow:inset 0 14px 22px -18px rgba(8,14,13,.22),inset 0 -14px 22px -18px rgba(8,14,13,.14)}
+header.barre{box-shadow:0 10px 24px -20px rgba(8,14,13,.5)}
+
+@media (max-width:60rem){
+  .scene{margin-top:1rem;padding-bottom:1.5rem}
+  .scene .tel{transform:rotateY(-8deg) rotateX(3deg) rotateZ(.8deg)}
+  .scene .montre{transform:translateZ(60px) rotateY(7deg) rotateZ(-3deg)}
+  .visuel .tel,.etape:nth-child(even) .visuel .tel{transform:rotateY(-7deg) rotateX(2deg)}
+  .offre.mise{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .scene .tel,.scene .montre,.visuel .tel,.env,.regle,.app,.pilier,.offre,.edition,.btn{transition:none}
+  .env:hover,.regle:hover,.app:hover,.pilier:hover,.edition:hover,.offre:hover,.btn:hover{transform:none}
+}
+
+/* Privacy page: the commercial design, sections as cards */
+.entete{padding:3.5rem 0 1.5rem}
+.entete h1{hyphens:auto;-webkit-hyphens:auto}
+.entete .maj{margin-top:.8rem;color:var(--doux);font-size:.95rem}
+.entete .resume{margin-top:1.2rem;max-width:46rem;font-size:1.15rem;color:var(--encre)}
+.langues{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.langues a{border:1px solid var(--trait);background:var(--carte);color:var(--encre);border-radius:999px;padding:.3rem .85rem;font-size:.9rem;text-decoration:none}
+.langues a[aria-current]{background:var(--accent);border-color:var(--accent);color:var(--accent-encre)}
+.politique{display:grid;grid-template-columns:16rem 1fr;gap:2rem;align-items:start;padding:1rem 0 4rem}
+.sommaire{position:sticky;top:5rem;background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.1rem 1.2rem;font-size:.92rem}
+.sommaire h2{font-family:inherit;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--doux);margin-bottom:.6rem}
+.sommaire ol{margin:0;padding-left:1.1rem;display:grid;gap:.35rem}
+.sommaire a{color:var(--encre);text-decoration:none}.sommaire a:hover{color:var(--accent);text-decoration:underline}
+.cartes{display:grid;gap:1.1rem}
+.cartes article{background:var(--carte);border:1px solid var(--trait);border-radius:1.2rem;padding:1.5rem 1.6rem;box-shadow:0 1px 0 rgba(22,33,31,.03);scroll-margin-top:5rem}
+.cartes article h2{font-size:1.45rem;margin-bottom:.8rem}
+.cartes article p+p{margin-top:.8rem}
+.cartes article ul{margin:.4rem 0 0;padding-left:1.2rem;display:grid;gap:.3rem}
+@media (max-width:60rem){.politique{grid-template-columns:1fr}.sommaire{position:static}}
+@media (max-width:36rem){.entete{padding:2.4rem 0 1rem}.entete h1{font-size:clamp(1.9rem,8.5vw,2.4rem)}.cartes article{padding:1.2rem}}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenu">Skip to content</a>
+
+<header class="barre">
+  <div class="wrap">
+    <a class="marque" href="../en/"><img src="../assets/touch-icon.png" alt="" width="64" height="64">4PMoney</a>
+    <button class="theme" id="theme" type="button" aria-label="Switch between light and dark theme" style="margin-left:auto">◐</button>
+    <a class="langue" href="../confidentialite/" lang="fr" hreflang="fr">FR</a>
+    <a class="btn plein petit" href="../en/#telecharger">Download</a>
+  </div>
+</header>
+
+<main id="contenu">
+  <div class="wrap">
+    <div class="entete">
+      <h1>Privacy policy</h1>
+      <p class="maj">Updated: 15 November 2026 · Abdelhafid YOUNES</p>
+      <p class="resume">Your budget stays on your devices and, if you use it, in your private iCloud space. Analytics and diagnostics are optional and off by default. Apple and RevenueCat verify subscriptions.</p>
+      <nav class="langues" aria-label="Languages"><a href="../confidentialite/" lang="fr" hreflang="fr">Français</a><a href="../privacy/" lang="en" hreflang="en" aria-current="page">English</a><a href="../privacy/de/" lang="de" hreflang="de">Deutsch</a><a href="../privacy/es/" lang="es" hreflang="es">Español</a><a href="../privacy/it/" lang="it" hreflang="it">Italiano</a><a href="../privacy/pt/" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a><a href="../privacy/pt-br/" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a></nav>
+    </div>
+    <div class="politique">
+      <nav class="sommaire" aria-labelledby="sommaire-titre"><h2 id="sommaire-titre">Contents</h2><ol><li><a href="#section-1">Who is responsible?</a></li><li><a href="#section-2">Your budget, devices and iCloud</a></li><li><a href="#section-3">Purchases, trials and restoration</a></li><li><a href="#section-4">Optional analytics — PostHog</a></li><li><a href="#section-5">Optional diagnostics — Sentry</a></li><li><a href="#section-6">Permissions and support</a></li><li><a href="#section-7">Purposes and legal bases</a></li><li><a href="#section-8">Retention and deletion</a></li><li><a href="#section-9">Providers and international transfers</a></li><li><a href="#section-10">These web pages</a></li><li><a href="#section-11">Your rights and updates</a></li><li><a href="#section-12">Provider documentation</a></li></ol></nav>
+      <div class="cartes">
+<article aria-labelledby="section-1"><h2 id="section-1">1. Who is responsible?</h2><p>Abdelhafid YOUNES, the independent publisher of 4PMoney, is the controller for the processing described here. For privacy questions and requests, contact <a href="mailto:abdelhafid.younes@gmail.com">abdelhafid.younes@gmail.com</a>.</p></article>
+<article aria-labelledby="section-2"><h2 id="section-2">2. Your budget, devices and iCloud</h2><p>You enter income, expenses, accounts, descriptions, envelopes, scheduled items, goals and preferences to obtain the calculations and tracking you request. Bank accounts are entered manually: 4PMoney does not connect to your bank or execute bank transfers.</p><p>Your budget is stored on your device. When iCloud is configured and available, the relevant data syncs in your private iCloud space across devices using the same Apple Account. The publisher does not operate a central server containing your budgets.</p><p>Exports, backups and shared files contain the data you choose to send. You choose their location and recipients. File sharing is not real-time sync between two Apple Accounts. The export feature does not send those files to analytics, diagnostic or subscription services.</p></article>
+<article aria-labelledby="section-3"><h2 id="section-3">3. Purchases, trials and restoration</h2><p>Apple processes payments. RevenueCat verifies purchases, trials and access rights and enables restoration. It processes a pseudonymous technical identifier, products and transactions, their status, receipts and the metadata needed for verification. Its SDK may contact the service at launch independently of optional analytics consent. It does not receive budget amounts or descriptions. 4PMoney does not receive your payment card number.</p><p>A local pending-purchase record stores a reference date and the type of verification to resume, separately for each edition and technical identity. It contains neither a budget nor proof of payment. It is removed when access confirmation, restoration or explicit cancellation resolves the attempt; an error can delay resolution. Removing this record or a RevenueCat profile does not cancel an Apple subscription. Manage subscriptions in your Apple Account. Budget viewing, export and recovery remain available after a subscription ends.</p></article>
+<article aria-labelledby="section-4"><h2 id="section-4">4. Optional analytics — PostHog</h2><p>Analytics and diagnostics share a single choice, “Help improve the app”, which is off by default. The app asks once and you can change your answer in Settings → Privacy, separately on each device. Events come from a fixed list: app launch, the screen viewed, a completed action (setup finished; a transaction, transfer, scheduled payment, month carry-over, import, statement check, savings goal or deposit saved; a receipt attached; an organisation rule saved), the steps of a purchase (subscription screen viewed, purchase started, completed, cancelled or pending, restoration completed), a failure shown to you identified by a fixed code such as “save_failed”, and a technical test. An event says that something happened, never what it was about or how much: it carries no amount, description, category or account name. Each event includes the app version, edition, environment and a pseudonymous installation identifier.</p><p>Unapproved properties, including budget amounts, descriptions and account names, are filtered before transmission. Person profiles, automatic interaction capture and session recording are disabled. The project uses PostHog Cloud EU, hosted in Frankfurt, with IP anonymization enabled and event geolocation disabled. An IP address is still needed for network transport; this does not mean providers process no network metadata.</p></article>
+<article aria-labelledby="section-5"><h2 id="section-5">5. Optional diagnostics — Sentry</h2><p>Diagnostics are covered by the same choice and are also off by default. With your consent, Sentry receives scrubbed crashes, errors and technical stack traces to investigate faults, together with the app version, edition and environment, the operating system version and the device model. It also receives the failures identified by a fixed code described above, the names of the last screens and completed actions before a fault (taken from the same fixed list), and anonymous usage sessions — a start, an end and whether the app crashed, with a random installation identifier — used to measure stability per version. Filtering removes user data, requests, error messages, free text and budget information from the transmitted signal. Session replay, screenshots and automatic log collection are disabled. The configured ingestion endpoint is European.</p><p>Withdrawing your consent stops new uploads to both services; it does not automatically delete events already received. You can request deletion using the contact above. Declining does not prevent you from using budgets or purchases.</p></article>
+<article aria-labelledby="section-6"><h2 id="section-6">6. Permissions and support</h2><p>Authorized notifications provide reminders. If biometric locking is enabled, authentication is performed by Apple’s system; 4PMoney does not receive your fingerprint or biometric model. You can change permissions in system settings.</p><p>If you email support, your address and the content you send are processed to answer your request. The support mailbox is hosted by Google/Gmail. Avoid sending an entire budget, passwords or bank details; redact private information in screenshots.</p></article>
+<article aria-labelledby="section-7"><h2 id="section-7">7. Purposes and legal bases</h2><p>Budget tracking, the sync you use, exports and access verification are necessary to perform the service you request (GDPR Article 6(1)(b)). Optional analytics and diagnostics rely on consent (6(1)(a)). Support and service security rely on the legitimate interest in answering requests and preventing incidents (6(1)(f)), subject to your rights. Processing required by law relies on Article 6(1)(c). 4PMoney does not use your budget for advertising, sell it or make decisions with legal effects based on a financial profile.</p></article>
+<article aria-labelledby="section-8"><h2 id="section-8">8. Retention and deletion</h2><p><strong>Budgets and files:</strong> data remains in the locations you use until you delete it: the app, your iCloud space, backups and exports. Delete items in the app, manage iCloud copies through Apple settings and delete exported files separately. Uninstalling the app does not delete all these copies. The publisher cannot remotely delete a budget it cannot access.</p><p><strong>PostHog analytics:</strong> the publisher sets a maximum retention of twelve months from each event. Expired-event deletion is followed up through periodic reviews; withdrawing consent does not automatically erase prior events. PostHog’s query window is not a data deletion mechanism.</p><p><strong>Sentry diagnostics:</strong> error events and usage sessions follow the Sentry plan’s retention of thirty to ninety days, depending on the plan; 4PMoney does not archive them separately.</p><p><strong>RevenueCat:</strong> information needed for access remains available during the subscription and for restoration. The publisher plans deletion no later than twenty-four months after the last entitlement expires, provided there is no new purchase activity, dispute or obligation justifying specific retention. A later restoration can recreate a profile from Apple’s history. Apple applies its own retention rules to its transaction records.</p><p><strong>Support:</strong> 4PMoney correspondence is kept while a request is handled and for no more than twenty-four months after closure, except for information needed for a legal obligation or dispute. Only necessary information is retained for the applicable period in that case. Provider deletion requests may be asynchronous; technical backups follow the provider’s deletion cycle and are not used for routine analytics.</p></article>
+<article aria-labelledby="section-9"><h2 id="section-9">9. Providers and international transfers</h2><p>Apple provides system services, iCloud and payments; RevenueCat, Inc. handles subscriptions; PostHog provides optional analytics; Functional Software, Inc. (Sentry) provides optional diagnostics; Google hosts support email; and GitHub, Inc. hosts these pages. Access by the publisher and these providers is limited to the functions described. The data is not all combined in a single service.</p><p>European collection endpoints at PostHog and Sentry do not rule out all processing or access from other countries. Providers or subprocessors may operate in the United States, in particular. Their data processing agreements describe recipients and mechanisms for transfers outside the European Economic Area, including European Commission Standard Contractual Clauses where applicable. You can request details and a copy of the applicable safeguards using the contact at the top of this page. This policy does not claim that all processing stays within the European Union.</p></article>
+<article aria-labelledby="section-10"><h2 id="section-10">10. These web pages</h2><p>This static site contains no forms, analytics scripts, external fonts or payment tools. GitHub Pages processes visitor IP addresses for hosting security. Visiting these pages does not send your budget to the site. External services linked here are contacted only when you follow a link.</p></article>
+<article aria-labelledby="section-11"><h2 id="section-11">11. Your rights and updates</h2><p>Subject to GDPR conditions, you can request access, correction, deletion, portability or restriction and object to processing based on legitimate interests. You can withdraw consent at any time without affecting earlier lawful processing.</p><p>Email <a href="mailto:abdelhafid.younes@gmail.com">abdelhafid.younes@gmail.com</a>, mentioning 4PMoney and the service concerned. A technical identifier or proportionate information may be needed to locate pseudonymous data; we do not ask for your Apple password or a complete budget. We respond within one month; for complex requests, any reasoned extension is notified within that first month. If data cannot be located without sufficient identification, we explain this.</p><p>You may complain to the <a href="https://www.cnil.fr/en">CNIL</a> or your local supervisory authority. Changes in practices will be reflected on this page with an updated date. New consent will be requested where necessary.</p></article>
+<article aria-labelledby="section-12"><h2 id="section-12">Provider documentation</h2><ul><li><a href="https://www.apple.com/legal/privacy/">Apple</a></li><li><a href="https://www.revenuecat.com/dpa">RevenueCat DPA</a></li><li><a href="https://posthog.com/docs/privacy">PostHog privacy</a></li><li><a href="https://sentry.io/legal/dpa/">Sentry DPA</a></li><li><a href="https://docs.sentry.io/security-legal-pii/security/data-retention-periods/">Sentry retention</a></li><li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages</a></li></ul></article>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Useful links">
+      <a href="../en/">Home</a>
+      <a href="../confidentialite/" lang="fr" hreflang="fr">Politique de confidentialité</a>
+      <a href="../privacy/" lang="en" hreflang="en">Privacy policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of use (Apple)</a>
+      <a href="mailto:abdelhafid.younes@gmail.com?subject=4PMoney">Contact</a>
+    </nav>
+    <p>4PMoney is a personal budget tracking tool. Apple, iPhone, iPad, Mac, Apple Watch, iCloud and App Store are trademarks of Apple Inc.</p>
+    <p>© 2026 Abdelhafid YOUNES</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var racine=document.documentElement,cle="4pmoney-theme";
+  function sombre(){var t=racine.getAttribute("data-theme");return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
+  try{var m=localStorage.getItem(cle);if(m)racine.setAttribute("data-theme",m)}catch(e){}
+  document.getElementById("theme").addEventListener("click",function(){
+    var n=sombre()?"light":"dark";racine.setAttribute("data-theme",n);
+    try{localStorage.setItem(cle,n)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
